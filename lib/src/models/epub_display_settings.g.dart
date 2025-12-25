@@ -9,6 +9,8 @@ part of 'epub_display_settings.dart';
 EpubDisplaySettings _$EpubDisplaySettingsFromJson(Map<String, dynamic> json) =>
     EpubDisplaySettings(
       fontSize: (json['fontSize'] as num?)?.toInt() ?? 15,
+      lineHeight: (json['lineHeight'] as num?)?.toDouble() ?? 1.5,
+      fontFamily: json['fontFamily'] as String?,
       spread:
           $enumDecodeNullable(_$EpubSpreadEnumMap, json['spread']) ??
           EpubSpread.auto,
@@ -37,6 +39,8 @@ Map<String, dynamic> _$EpubDisplaySettingsToJson(
   EpubDisplaySettings instance,
 ) => <String, dynamic>{
   'fontSize': instance.fontSize,
+  'lineHeight': instance.lineHeight,
+  'fontFamily': ?instance.fontFamily,
   'spread': _$EpubSpreadEnumMap[instance.spread]!,
   'flow': _$EpubFlowEnumMap[instance.flow]!,
   'defaultDirection': _$EpubDefaultDirectionEnumMap[instance.defaultDirection]!,

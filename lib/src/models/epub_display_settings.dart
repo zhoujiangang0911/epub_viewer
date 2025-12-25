@@ -8,6 +8,12 @@ class EpubDisplaySettings {
   /// Font size of the reader
   int fontSize;
 
+  /// Line height multiplier (e.g., 1.5, 1.8, 2.0)
+  double lineHeight;
+
+  /// Font family name (e.g., "Source Han Sans", "Noto Serif SC")
+  String? fontFamily;
+
   /// Page spread settings
   EpubSpread spread;
 
@@ -35,6 +41,8 @@ class EpubDisplaySettings {
 
   EpubDisplaySettings({
     this.fontSize = 15,
+    this.lineHeight = 1.5,
+    this.fontFamily,
     this.spread = EpubSpread.auto,
     this.flow = EpubFlow.paginated,
     this.allowScriptedContent = false,
