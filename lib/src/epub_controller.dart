@@ -251,6 +251,18 @@ class EpubController {
   moveToLastPage() {
     toProgressPercentage(1.0);
   }
+  /// Set line height multiplier (e.g., 1.5, 1.8, 2.0)
+  setLineHeight({required double lineHeight}) {
+    checkEpubLoaded();
+    webViewController?.evaluateJavascript(source: 'setLineHeight($lineHeight)');
+  }
+
+  /// Set font family
+  setFontFamily({required String fontFamily}) {
+    checkEpubLoaded();
+    webViewController?.evaluateJavascript(source: 'setFontFamily("$fontFamily")');
+  }
+
 
   checkEpubLoaded() {
     if (webViewController == null) {
